@@ -2,15 +2,29 @@ import React from "react";
 import { Field, reduxForm } from "redux-form"; // Field is a component and reduxForm works the work similar to that of connect
 
 class StreamCreate extends React.Component {
+  renderError = ({ error, touched }) => {
+    if (touched && error) {
+      return (
+        <div className="ui error message">
+          <div className="header">{error}</div>
+        </div>
+      );
+    }
+  };
+
   renderInputTag = formProps => {
     console.log(formProps.meta);
     // console.log(formProps);
     // return <input onChange={formProps.input.onChange} />
+    const _className = `field ${
+      formProps.meta.error && formProps.meta.touched ? "error" : ""
+    }`;
     return (
-      <div className="field">
+      <div className={_className}>
         <label>{formProps.label}</label>
-        <input {...formProps.input} />
-        <div>{formProps.meta.error}</div>
+        <input {...formProps.input} autoComplete="off" />
+        {/*formProps.meta.error*/}
+        {this.renderError(formProps.meta)}
       </div>
     );
   };
@@ -23,7 +37,7 @@ class StreamCreate extends React.Component {
     // console.log(this.props);
     return (
       <form
-        className="ui form"
+        className="ui form error"
         onSubmit={this.props.handleSubmit(this.onSubmit)}
       >
         <Field
