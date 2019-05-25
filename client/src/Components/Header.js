@@ -9,7 +9,8 @@ class Header extends React.Component {
     return (
       <div className="ui pointing menu">
         <Link to="/" className="active item">
-          My Twick
+          <b>My Twick</b>
+          <i style={{ color: "purple" }} className="podcast icon" />
         </Link>
         <div className="right menu">
           <Link to="/" className="item">
