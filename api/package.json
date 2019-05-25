@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Api for Twitch Clone App",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server -p 3001 -w db.json"
+  },
+  "author": "Sanket Singh",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.15.0"
+  }
+}
