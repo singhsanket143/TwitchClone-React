@@ -1,5 +1,5 @@
 import streams from "../API/Streams";
-
+import history from "../history";
 export const signIn = userid => {
   return {
     type: "SIGN_IN",
@@ -22,6 +22,7 @@ export const createStream = formValues => {
       type: "CREATE_STREAM",
       payload: response.data
     });
+    history.push("/"); // Programmatic navigation
   };
 };
 
