@@ -13,14 +13,9 @@ class Modal extends React.Component {
           onClick={e => e.stopPropagation()}
           className="ui standard modal visible active"
         >
-          <div className="header">Delete Stream</div>
-          <div className="content">
-            Are you sure you want to delete this stream?
-          </div>
-          <div className="actions">
-            <button className="ui primary button">Delete</button>
-            <button className="ui button">Cancel</button>
-          </div>
+          <div className="header">{this.props.title}</div>
+          <div className="content">{this.props.description}</div>
+          <div className="actions">{this.props.actions}</div>
         </div>
       </div>,
       document.querySelector("#modal")
