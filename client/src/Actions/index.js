@@ -57,12 +57,13 @@ export const editStream = (id, formValues) => {
   };
 };
 
-export const deleteStream = (id, formValues) => {
+export const deleteStream = id => {
   return async dispatch => {
-    streams.delete("/streams", formValues);
+    await streams.delete(`/streams/${id}`);
     dispatch({
       type: "DELETE_STREAM",
       payload: id
     });
+    history.push("/");
   };
 };
